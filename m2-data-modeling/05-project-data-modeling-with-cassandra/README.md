@@ -72,7 +72,7 @@ Query: Give me only the following: name of artist, song (sorted by itemInSession
 |song_title|TEXT|
 |user_first_name|TEXT|
 |user_last_name|TEXT|
- PRIMARY KEY (user_id, session_id, session_item)
+ PRIMARY KEY ((user_id, session_id), session_item)
  
  We can run this query on the music_user_by_user_session table:
  
