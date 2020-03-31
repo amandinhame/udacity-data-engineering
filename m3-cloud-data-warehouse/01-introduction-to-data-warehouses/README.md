@@ -75,3 +75,12 @@ The OLAP cubes stores the fines grain of data, in case we need to drill down
 
 Slice: Reduce one dimension of the cube. E.g.: getting just one of the months.
 Dice: Same number of dimensions, but restricting the values. E.g.: Month [FEB, MAR], Branch [NY], Movie [Avatar, Star wars]
+
+## OLAP Cubes: Query optimization
+
+Group by Cube (movie, branch, month) will aggregate all possible combinations of groupings (revenue by [[], [movie], [branch], [month], [movie, branch], [movie, month], [branch, month], [movie, branch, month]]) with one pass to the fact table.
+
+## Data Warehouse Technologies
+
+* MOLAP - Pre-aggregate OLAP cubes
+* ROLAP - Compute OLAP cubes on the fly
