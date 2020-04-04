@@ -75,5 +75,7 @@
 
 ## Sorting Key
 
-
+* Define a column as a sort key
+* Rows are sorted before distributing to slices
+* Useful for columns that are used frequently in sorting
 
