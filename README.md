@@ -16,3 +16,12 @@ This repository contains my notes and projects from the [Udacity Data Engineerin
 
 * [Project: Data Modeling with Apache Cassandra](m2-data-modeling/05-project-data-modeling-with-cassandra)
 
+## 3. Cloud Data Warehouses
+
+* [Introduction to Data Warehouses](m3-cloud-data-warehouse/01-introduction-to-data-warehouses)
+
+* [Introduction to Cloud Computing and AWS](m3-cloud-data-warehouse/02-introduction-to-cloud-computing)
+
+* [Implementing Data Warehouses on AWS](m3-cloud-data-warehouse/03-implementing-dwh-on-aws)
+
+* [Project: Data Warehouse](m3-cloud-data-warehouse/04-project-data-warehouse-on-aws)
