@@ -25,3 +25,15 @@ This repository contains my notes and projects from the [Udacity Data Engineerin
 * [Implementing Data Warehouses on AWS](m3-cloud-data-warehouse/03-implementing-dwh-on-aws)
 
 * [Project: Data Warehouse](m3-cloud-data-warehouse/04-project-data-warehouse-on-aws)
+
+## 4. Data Lakes with Spark
+
+* [The Power of Spark](m4-data-lakes-with-spark/01-the-power-of-spark)
+
+* [Data Wrangling with Spark](m4-data-lakes-with-spark/02-data-wrangling-with-spark)
+
+* [Debugging and Optimization](m4-data-lakes-with-spark/03-debugging-optimization)
+
+* [Introduction to Data Lakes](m4-data-lakes-with-spark/04-introduction-to-data-lakes)
+
+* [Project: Data Lake](m4-data-lakes-with-spark/05-project-data-lake-with-spark)
