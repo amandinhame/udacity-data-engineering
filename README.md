@@ -37,3 +37,14 @@ This repository contains my notes and projects from the [Udacity Data Engineerin
 * [Introduction to Data Lakes](m4-data-lakes-with-spark/04-introduction-to-data-lakes)
 
 * [Project: Data Lake](m4-data-lakes-with-spark/05-project-data-lake-with-spark)
+
+## 5. Data Pipelines with Airflow
+
+* [Data Pipelines](m5-data-pipelines-with-airflow/01-data-pipelines)
+
+* [Data Quality](m5-data-pipelines-with-airflow/02-data-quality)
+
+* [Production Data Pipelines](m5-data-pipelines-with-airflow/03-production-data-pipelines)
+
+* [Project: Data Pipelines](m5-data-pipelines-with-airflow/04-project-data-pipelines-airflow)
+
