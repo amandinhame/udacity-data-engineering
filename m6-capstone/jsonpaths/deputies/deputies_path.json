@@ -1,0 +1,16 @@
+{
+    "jsonpaths": [
+        "$['uri']",
+        "$['name']",
+        "$['firstLegislatureId']",
+        "$['lastLegislatureId']",
+        "$['civilName']",
+        "$['gender']",
+        "$['birthDate']",
+        "$['deathDate']",
+        "$['birthState']",
+        "$['birthCounty']"
+    ]
+}
+
+

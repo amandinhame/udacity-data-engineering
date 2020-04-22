@@ -1,0 +1,9 @@
+{
+    "jsonpaths": [
+        "$['legislatureId']",
+        "$['uri']",
+        "$['startDate']",
+        "$['endDate']",
+        "$['electionYear']"
+    ]
+}
