@@ -2,7 +2,7 @@
 
 ## Description
 
-The [deputies](https://en.wikipedia.org/wiki/Deputy_(legislator)) in Brazil have a quota (_Cota para Exercício de Atividade Parlamentar_) they can use to cover their profissional expenditures, such as mailing and plane tickets. Since 2008 the data related to this quota is available to the public and can be used to analyze the deputies expenditures of this federal resource.
+The [deputies](https://en.wikipedia.org/wiki/Deputy_(legislator)) in Brazil have a quota (_Cota para Exercício de Atividade Parlamentar_) they can use to cover their professional expenditures, such as mailing and plane tickets. Since 2008 the data related to this quota is available to the public and can be used to analyze the deputies expenditures of this federal resource.
 
 The objective of this project is to create a database in which is possible to analyze the expenditures of the deputies and answer questions like:
 
