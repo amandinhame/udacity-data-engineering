@@ -19,14 +19,15 @@ class StageFromApiToRedshiftOperator(BaseOperator):
 
     @apply_defaults
     def __init__(self,  redshift_conn_id, table,
-                 select_query, fields, clear_table=False,
+                 select_query, fields,
                  *args, **kwargs):
         '''Instantiate StageFromApiToRedshiftOperator.
         
         Args:
             redshift_conn_id (str): Redshift connection id registered in Airflow.
-            table (str): Table name.
-            select_query (str): Query to select data to insert into  table.
+            table (str): Table to insert the data from the API response.
+            select_query (str): Select query that returns only one column with the urls to be requested.
+            fields (arr[str]): Fields to be obtained from the api response. E.g.: ['data.id', 'data.name'].
             *args: Variable arguments.
             **kwargs: Keyword arguments.
             
@@ -39,7 +40,7 @@ class StageFromApiToRedshiftOperator(BaseOperator):
         self.fields = fields
         
     def execute(self, context):
-        '''Insert data into table.
+        '''Obtain the urls to request data from the API, get data from the response and insert into a table.
         
         Args:
             context: Variable arguments with task information.
@@ -64,7 +65,7 @@ class StageFromApiToRedshiftOperator(BaseOperator):
         self.log.info(f'Requesting and inserting data into {self.table}')
         for row in rows:
 
-            # Request data and transform in json dict
+            # Request data and transform to json dict
             r = requests.get(row[0])
             content = json.loads(r.text)
 
@@ -81,8 +82,10 @@ class StageFromApiToRedshiftOperator(BaseOperator):
         # Build the ´values´ part of the insert statement: ('field1', 'field2', ..., 'fieldn'), ..., ('field1', 'field2', ..., 'fieldn')
         values = '({})'.format('), ('.join(data))
 
-        insert_statement = StageFromApiToRedshiftOperator.insert_sql.format(self.table, values)
-        redshift.run(insert_statement)
+        # Insert data into table
+        if len(data) > 0:
+            insert_statement = StageFromApiToRedshiftOperator.insert_sql.format(self.table, values)
+            redshift.run(insert_statement)
 
         self.log.info(f'Request data from API {self.table}')
         

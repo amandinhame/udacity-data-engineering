@@ -34,7 +34,7 @@ class StageFromS3ToRedshiftOperator(BaseOperator):
         
         Args:
             redshift_conn_id (str): Redshift connection id registered in Airflow.
-            aws_credentials_id (str): Aws credentials id  registered in Airflow.
+            aws_credentials_id (str): Aws credentials id registered in Airflow.
             table (str): Staging table name.
             s3_bucket (str): S3 bucket where the data is stored.
             s3_prefix (str): Prefix of the files in S3 to be processed.
@@ -72,7 +72,7 @@ class StageFromS3ToRedshiftOperator(BaseOperator):
             
         '''
         print(context)
-        aws_hook = AwsHook(aws_conn_id=self.aws_credentials_id, client_type='s3')
+        aws_hook = AwsHook(aws_conn_id=self.aws_credentials_id, client_type='s3', region_name=self.aws_region)
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         

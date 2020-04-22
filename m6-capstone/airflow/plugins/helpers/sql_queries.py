@@ -1,5 +1,6 @@
 class SqlQueries:
     
+    # Select from `stagingLegislatures` to insert into `legislatures`
     legislatures_select_insert = """
         SELECT DISTINCT
             sl.legislatureid,
@@ -13,6 +14,8 @@ class SqlQueries:
             )
     """
 
+    # Identify new deputies that are in the `stagingDeputies` and not in the `deputies`
+    # and insert into `newDeputies`
     new_deputies_select_insert = """
         SELECT DISTINCT CAST(SUBSTRING(sd.uri, 53) AS INT) AS deputyId, sd.uri AS uri
         FROM stagingDeputies sd
@@ -20,11 +23,13 @@ class SqlQueries:
             (SELECT deputyId FROM deputies)
     """
 
+    # Select `uri` of the new deputies to call the API to get more details
     new_deputies_uri_select = """
         SELECT uri
         FROM newDeputies
     """
 
+    # Select from `stagingDeputiesDetails` to insert into `parties`
     parties_select_insert = """
         SELECT DISTINCT
             TRIM(UPPER(sdd.party))
@@ -33,8 +38,10 @@ class SqlQueries:
             (SELECT party FROM parties)
     """
 
+    # Columns of `parties` to be used in the insert statement
     parties_columns = ['party']
 
+    # Select from `stagingDeputiesDetails` to insert into `states`
     states_select_insert = """
         SELECT DISTINCT
             TRIM(UPPER(sdd.electionState))
@@ -43,8 +50,10 @@ class SqlQueries:
             (SELECT stateAbb FROM states)
     """
 
+    # Columns of `states` to be used in the insert statement
     states_columns = ['stateAbb']
 
+    # Select from `stagingDeputiesDetails` to insert into `schoolLevels`
     school_levels_select_insert = """
         SELECT DISTINCT
             TRIM(INITCAP(sdd.schoolLevel))
@@ -53,8 +62,11 @@ class SqlQueries:
             (SELECT schoolLevel FROM schoolLevels)
     """
 
+    # Columns of `schoolLevels` to be used in the insert statement
     school_levels_columns = ['schoolLevel']
 
+    # Select from `stagingDeputiesDetails`, `parties`, `states` and `schoolLevels`
+    # to insert into `deputies`
     deputies_select_insert = """
         SELECT
            CAST(sdd.deputyId AS INT),
@@ -88,6 +100,7 @@ class SqlQueries:
             (SELECT deputyId FROM deputies)
     """
 
+    # Select from `stagingExpenses` to insert into `expenseTypes`
     expense_types_select_insert = """
         SELECT DISTINCT
             TRIM(INITCAP(se.description))
@@ -96,8 +109,10 @@ class SqlQueries:
             (SELECT expenseTypeDescription FROM expenseTypes)
     """
 
+    # Columns of `expenseTypes` to be used in the insert statement
     expense_types_columns = ['expenseTypeDescription']
 
+    # Select from `stagingExpenses` and `expenseTypes` to insert into `expenses`
     expenses_select_insert = """
         SELECT DISTINCT
             se.legislatureId,
@@ -132,6 +147,7 @@ class SqlQueries:
             )
     """
 
+    # Columns of `expenses` to be used in the insert statement
     expenses_columns = ['legislatureId', 'deputyId', 'expenseTypeId', 'emissionDate', 'provider',
         'providerDocumentId', 'month', 'year', 'documentValue', 'glValue', 'liqValue', 'parcelNu', 
         'documentId', 'documentUrl']
