@@ -48,3 +48,6 @@ This repository contains my notes and projects from the [Udacity Data Engineerin
 
 * [Project: Data Pipelines](m5-data-pipelines-with-airflow/04-project-data-pipelines-airflow)
 
+## 6. Capstone Project
+
+* [Project: Capstone - Brazilian Deputies Expenses](m6-capstone/)
